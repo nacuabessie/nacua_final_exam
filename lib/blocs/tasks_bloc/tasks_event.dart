@@ -83,3 +83,4 @@ class RestoreTask extends TasksEvent{
 
 }
 
+class DeleteAllTasks extends TasksEvent {}
