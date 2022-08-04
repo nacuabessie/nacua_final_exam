@@ -12,7 +12,7 @@ class FavoriteTasksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<TasksBloc, TasksState>(
       builder: (context, state) {
-        List<Task> tasksList = state.pendingTasks;
+        List<Task> tasksList = state.favoriteTasks;
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           child: Column(
@@ -20,7 +20,7 @@ class FavoriteTasksScreen extends StatelessWidget {
             children: [
               Center(
                 child: Chip(
-                  label: Text('${state.pendingTasks.length} Tasks'),
+                  label: Text('${tasksList.length} Tasks'),
                 ),
               ),
               const SizedBox(height: 10),

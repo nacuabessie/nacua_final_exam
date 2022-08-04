@@ -42,7 +42,7 @@ class TasksDrawer extends StatelessWidget {
                     leading: const Icon(Icons.folder_special),
                     title: const Text('My Tasks'),
                     trailing: Text(
-                      '${state.pendingTasks.length} | ${TestData.completedTasks.length}',
+                      '${state.pendingTasks.length} | ${state.completedTasks.length}',
                     ),
                   ),
                 );
