@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../blocs/bloc/tasks_bloc.dart';
+
 import '../blocs/bloc_exports.dart';
 import '../models/task.dart';
 import '../test_data.dart';
@@ -13,7 +13,7 @@ class PendingTasksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<TasksBloc, TasksState>(
       builder: (context, state) {
-        List<Task> tasksList = state.allTasks;
+        List<Task> tasksList = state.pendingTasks;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       child: Column(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
-import '../blocs/bloc/tasks_bloc.dart';
+import '../blocs/tasks_bloc/tasks_bloc.dart';
 import '../models/task.dart';
 import 'add_edit_task.dart';
 import 'popup_menu.dart';
@@ -25,6 +25,12 @@ class TaskTile extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _removeOrDeleteTask(BuildContext ctx, Task task){
+    task.isDeleted!
+    ? ctx.read<TasksBloc>().add(DeleteTask(task: task))
+    : ctx.read<TasksBloc>().add(RemoveTask(task: task));
   }
 
   @override
@@ -79,7 +85,7 @@ class TaskTile extends StatelessWidget {
                 _editTask(context);
               },
               likeOrDislikeCallback: () {},
-              cancelOrDeleteCallback: () => context.read<TasksBloc>().add(DeleteTask(task:task)),
+              cancelOrDeleteCallback: () => _removeOrDeleteTask(context, task),
               restoreTaskCallback: () => {},
             ),
           ],
